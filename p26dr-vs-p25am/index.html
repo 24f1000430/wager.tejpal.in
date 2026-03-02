@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paradox'26 Date Reveal Bet</title>
+<title>Paradox'26 Date Reveal Bet - RESULTS</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -44,26 +44,6 @@
     padding: 60px 24px 80px;
   }
 
-  /* Header */
-  .stamp {
-    display: inline-block;
-    border: 3px solid var(--gold);
-    color: var(--gold);
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 11px;
-    letter-spacing: 4px;
-    padding: 4px 12px;
-    margin-bottom: 24px;
-    animation: flicker 4s infinite;
-  }
-
-  @keyframes flicker {
-    0%,95%,100% { opacity: 1; }
-    96% { opacity: 0.4; }
-    97% { opacity: 1; }
-    98% { opacity: 0.3; }
-  }
-
   h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(52px, 10vw, 96px);
@@ -74,95 +54,52 @@
 
   h1 span { color: var(--gold); }
 
-  .subtitle {
+  /* Final Verdict Banner */
+  .final-verdict {
+    background: #1a0505;
+    border: 2px solid var(--red);
+    text-align: center;
+    padding: 32px;
+    margin-bottom: 48px;
+    box-shadow: 0 0 30px rgba(255, 61, 87, 0.15);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-verdict::after {
+    content: 'SETTLED';
+    position: absolute;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 120px;
+    color: var(--red);
+    opacity: 0.05;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-10deg);
+    pointer-events: none;
+  }
+
+  .final-verdict p.label {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--red);
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+  }
+
+  .final-verdict h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 6vw, 56px);
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+
+  .final-verdict p.desc {
     font-family: 'DM Mono', monospace;
     font-size: 12px;
     color: var(--muted);
-    letter-spacing: 1px;
-    margin-bottom: 48px;
-    padding-top: 12px;
-    border-top: 1px solid var(--border);
-  }
-
-  /* Deadline Banner */
-  .deadline {
-    background: linear-gradient(135deg, #1a0a00, #0a0a0a);
-    border: 1px solid #ff3d5733;
-    border-left: 3px solid var(--red);
-    padding: 16px 20px;
-    margin-bottom: 40px;
-  }
-
-  .deadline-top {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 14px;
-  }
-
-  .deadline .icon { font-size: 20px; }
-
-  .deadline-text strong {
-    display: block;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px;
-    letter-spacing: 1px;
-    color: var(--red);
-  }
-
-  .deadline-text span {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-  }
-
-  .countdown-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-  }
-
-  .countdown-unit {
-    background: #1a0505;
-    border: 1px solid #ff3d5730;
-    padding: 10px 8px 8px;
-    text-align: center;
-  }
-
-  .countdown-unit .c-val {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 32px;
-    letter-spacing: 2px;
-    color: var(--red);
-    line-height: 1;
-    display: block;
-  }
-
-  .countdown-unit .c-lbl {
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: var(--muted);
-    display: block;
-    margin-top: 4px;
-  }
-
-  .countdown-status {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 1px;
-    margin-top: 10px;
-    text-align: center;
-  }
-
-  .countdown-unit.live .c-val {
-    animation: pulse-red 1s infinite;
-  }
-
-  @keyframes pulse-red {
-    0%, 100% { color: var(--red); }
-    50% { color: #ff7a8a; }
   }
 
   /* Reel Cards */
@@ -188,27 +125,12 @@
     text-decoration: none;
     color: var(--text);
     display: block;
-    transition: border-color 0.2s, transform 0.2s;
     position: relative;
     overflow: hidden;
   }
 
-  .reel-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .reel-card.challenger::after { background: radial-gradient(ellipse at top left, #00e67615, transparent); }
-  .reel-card.baseline::after { background: radial-gradient(ellipse at top left, #ffd74015, transparent); }
-
-  .reel-card:hover { transform: translateY(-2px); }
-  .reel-card.challenger:hover { border-color: var(--green); }
-  .reel-card.baseline:hover { border-color: var(--gold); }
-  .reel-card:hover::after { opacity: 1; }
-
+  .reel-card.challenger { opacity: 0.5; filter: grayscale(80%); } /* Gray out the loser reel */
+  
   .reel-tag {
     font-family: 'DM Mono', monospace;
     font-size: 10px;
@@ -236,38 +158,14 @@
     text-overflow: ellipsis;
   }
 
-  .reel-arrow {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    font-size: 12px;
-    opacity: 0.3;
-    transition: opacity 0.2s;
-  }
-
-  .reel-card:hover .reel-arrow { opacity: 1; }
-
   /* Question */
   .question-block {
     text-align: center;
-    margin-bottom: 48px;
+    margin-bottom: 24px;
     padding: 32px;
     background: linear-gradient(180deg, #111 0%, #0d0d0d 100%);
     border: 1px solid var(--border);
     position: relative;
-  }
-
-  .question-block::before {
-    content: '?';
-    position: absolute;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 200px;
-    color: white;
-    opacity: 0.02;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
   }
 
   .question-block p {
@@ -283,42 +181,7 @@
     font-size: clamp(24px, 5vw, 36px);
     letter-spacing: 1px;
     line-height: 1.2;
-  }
-
-  .question-block h2 span.green { color: var(--green); }
-  .question-block h2 span.gold { color: var(--gold); }
-
-  /* Verdict */
-  .verdict-banner {
-    background: #0a1a0a;
-    border: 1px solid var(--green);
-    padding: 20px 24px;
-    margin-bottom: 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .verdict-banner.expired {
-    background: #1a0a0a;
-    border-color: var(--red);
-  }
-
-  .verdict-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: var(--green);
-  }
-
-  .expired .verdict-label { color: var(--red); }
-
-  .verdict-status {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    letter-spacing: 1px;
+    color: var(--muted); /* Muted because the bet is over */
   }
 
   /* Bets Section */
@@ -354,16 +217,17 @@
     margin-bottom: 12px;
   }
 
-  .label-yes {
-    background: #00e67615;
-    color: var(--green);
-    border: 1px solid #00e67630;
+  .label-no.winner {
+    background: var(--red);
+    color: #fff;
+    border: 1px solid var(--red);
+    box-shadow: 0 0 10px rgba(255, 61, 87, 0.4);
   }
 
-  .label-no {
-    background: #ff3d5715;
-    color: var(--red);
-    border: 1px solid #ff3d5730;
+  .label-yes.loser {
+    background: #111;
+    color: var(--muted);
+    border: 1px solid var(--border);
   }
 
   .bet-row {
@@ -374,25 +238,33 @@
     border: 1px solid var(--border);
     margin-bottom: 6px;
     background: var(--card);
-    transition: border-color 0.15s;
     position: relative;
     overflow: hidden;
   }
 
-  .bet-row::before {
+  /* Winner Styles */
+  .no-group.winner-group .bet-row {
+    border-color: #ff3d5740;
+    background: #1a0505;
+  }
+  .no-group.winner-group .bet-row::before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
+    left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--red);
   }
 
-  .yes-group .bet-row::before { background: var(--green); }
-  .no-group .bet-row::before { background: var(--red); }
-
-  .yes-group .bet-row:hover { border-color: #00e67640; }
-  .no-group .bet-row:hover { border-color: #ff3d5740; }
+  /* Loser Styles */
+  .yes-group.loser-group {
+    opacity: 0.5;
+    filter: grayscale(100%);
+  }
+  .yes-group.loser-group .bet-row::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--muted);
+  }
 
   .bet-name {
     font-weight: 600;
@@ -405,8 +277,21 @@
     font-weight: 500;
   }
 
-  .yes-group .bet-amount { color: var(--green); }
-  .no-group .bet-amount { color: var(--red); }
+  .no-group .bet-amount { color: var(--muted); }
+  .yes-group .bet-amount { color: var(--muted); text-decoration: line-through; }
+
+  .payout {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: var(--gold);
+    margin-left: 12px;
+    letter-spacing: 1px;
+  }
+
+  .payout-details {
+    display: flex;
+    align-items: center;
+  }
 
   /* Totals */
   .totals-row {
@@ -423,6 +308,11 @@
     background: var(--card);
   }
 
+  .total-card.winner-pot {
+    border-color: var(--red);
+    background: #1a0505;
+  }
+
   .total-card .t-label {
     font-family: 'DM Mono', monospace;
     font-size: 10px;
@@ -430,8 +320,8 @@
     margin-bottom: 8px;
   }
 
-  .yes-total .t-label { color: var(--green); }
-  .no-total .t-label { color: var(--red); }
+  .winner-pot .t-label { color: var(--red); }
+  .loser-pot .t-label { color: var(--muted); }
 
   .total-card .t-amount {
     font-family: 'Bebas Neue', sans-serif;
@@ -439,8 +329,8 @@
     letter-spacing: 1px;
   }
 
-  .yes-total .t-amount { color: var(--green); }
-  .no-total .t-amount { color: var(--red); }
+  .winner-pot .t-amount { color: var(--gold); }
+  .loser-pot .t-amount { color: var(--muted); text-decoration: line-through; }
 
   .total-card .t-note {
     font-size: 11px;
@@ -477,58 +367,59 @@
 <body>
 <div class="container">
 
-  <!-- Question -->
-  <div class="question-block">
-    <p>THE BET</p>
-    <h2>Will <span class="green">Challenger</span> cross<br>the views of <span class="gold">Target Reel</span><br>before 2 March 2026, 8PM?</h2>
+  <div class="final-verdict">
+    <p class="label">RESULTS DECLARED</p>
+    <h2>CHALLENGER FAILED</h2>
+    <p class="desc">The target reel views were not crossed by the deadline.</p>
   </div>
 
-  <!-- Reel Cards -->
+  <div class="question-block">
+    <p>THE ORIGINAL BET</p>
+    <h2>Will Challenger cross the views of Target Reel before 2 March 2026, 8PM?</h2>
+  </div>
+
   <div class="reels-row">
     <a href="https://www.instagram.com/reel/DVOY6ISkcox/" target="_blank" class="reel-card challenger">
-      <div class="reel-tag">🚀 Challenger</div>
+      <div class="reel-tag">🚀 Challenger (Lost)</div>
       <div class="reel-label">Paradox'26 Date Reveal</div>
       <div class="reel-link">instagram.com/reel/DVOY6ISkcox/</div>
-      <span class="reel-arrow">↗</span>
     </a>
 
     <div class="vs">VS</div>
 
     <a href="https://www.instagram.com/reel/DNnvZhUMxNf/" target="_blank" class="reel-card baseline">
-      <div class="reel-tag">👑 Target</div>
+      <div class="reel-tag">👑 Target (Won)</div>
       <div class="reel-label">Paradox'25 Aftermovie</div>
       <div class="reel-link">instagram.com/reel/DNnvZhUMxNf/</div>
-      <span class="reel-arrow">↗</span>
     </a>
   </div>
 
-  <!-- Deadline Banner -->
-  <div class="deadline expired" id="deadline-banner">
-    <div class="deadline-top">
-      <div class="icon">⏱</div>
-      <div class="deadline-text">
-        <strong id="deadline-title">DEADLINE PASSED</strong>
-        <span>2 MARCH 2026 · 8:00 PM IST</span>
+  <div class="section-header">
+    <h3>FINAL PAYOUTS</h3>
+    <span class="count">7 participants · ₹100 total pot distributed</span>
+  </div>
+
+  <div class="bet-group no-group winner-group">
+    <div class="group-label label-no winner">🏆 WINNERS — NOT IN FAVOR</div>
+
+    <div class="bet-row">
+      <span class="bet-name">Batak</span>
+      <div class="payout-details">
+        <span class="bet-amount">Stake: ₹15</span>
+        <span class="payout">+ ₹50</span>
       </div>
     </div>
-    <div class="countdown-grid">
-      <div class="countdown-unit" id="unit-d"><span class="c-val" id="cd-days">00</span><span class="c-lbl">DAYS</span></div>
-      <div class="countdown-unit" id="unit-h"><span class="c-val" id="cd-hours">00</span><span class="c-lbl">HRS</span></div>
-      <div class="countdown-unit" id="unit-m"><span class="c-val" id="cd-mins">00</span><span class="c-lbl">MINS</span></div>
-      <div class="countdown-unit" id="unit-s"><span class="c-val" id="cd-secs">00</span><span class="c-lbl">SECS</span></div>
+    <div class="bet-row">
+      <span class="bet-name">Prasanjit</span>
+      <div class="payout-details">
+        <span class="bet-amount">Stake: ₹15</span>
+        <span class="payout">+ ₹50</span>
+      </div>
     </div>
-    <div class="countdown-status" id="cd-status">SINCE DEADLINE CLOSED</div>
   </div>
 
-  <!-- Bets Section -->
-  <div class="section-header">
-    <h3>THE BETS</h3>
-    <span class="count">7 participants · ₹100 total pot</span>
-  </div>
-
-  <!-- YES Group -->
-  <div class="bet-group yes-group">
-    <div class="group-label label-yes">✅ IN FAVOR — WILL CROSS</div>
+  <div class="bet-group yes-group loser-group">
+    <div class="group-label label-yes loser">💀 LOSERS — IN FAVOR</div>
 
     <div class="bet-row">
       <span class="bet-name">Deepak</span>
@@ -556,77 +447,24 @@
     </div>
   </div>
 
-  <!-- NO Group -->
-  <div class="bet-group no-group">
-    <div class="group-label label-no">❌ NOT IN FAVOR — WON'T CROSS</div>
-
-    <div class="bet-row">
-      <span class="bet-name">Batak</span>
-      <span class="bet-amount">₹15</span>
-    </div>
-    <div class="bet-row">
-      <span class="bet-name">Prasanjit</span>
-      <span class="bet-amount">₹15</span>
-    </div>
-  </div>
-
-  <!-- Totals -->
   <div class="totals-row">
-    <div class="total-card yes-total">
-      <div class="t-label">IN FAVOR POT</div>
-      <div class="t-amount">₹70</div>
-      <div class="t-note">6 believers</div>
+    <div class="total-card winner-pot">
+      <div class="t-label">TOTAL PAYOUT TO WINNERS</div>
+      <div class="t-amount">₹100</div>
+      <div class="t-note">Original ₹30 stake + ₹70 winnings</div>
     </div>
-    <div class="total-card no-total">
-      <div class="t-label">AGAINST POT</div>
-      <div class="t-amount">₹30</div>
-      <div class="t-note">2 doubter</div>
+    <div class="total-card loser-pot">
+      <div class="t-label">POT LOST</div>
+      <div class="t-amount">₹70</div>
+      <div class="t-note">Distributed among 2 winners</div>
     </div>
   </div>
 
-  <!-- Footer -->
   <div class="footer">
     <span>wager.tejpal.in</span>
-    <span>Settled at deadline · 2 Mar 2026 · 8PM IST</span>
+    <span>Settled · 2 Mar 2026 · 8PM IST</span>
   </div>
 
 </div>
-<script>
-  // Deadline: 2 March 2026, 8:00 PM IST (UTC+5:30 = 14:30 UTC)
-  const DEADLINE = new Date('2026-03-02T14:30:00Z');
-
-  function pad(n) { return String(Math.floor(n)).padStart(2, '0'); }
-
-  function updateCountdown() {
-    const now = new Date();
-    const diff = now - DEADLINE; // positive = past deadline
-    const isPast = diff >= 0;
-    const absDiff = Math.abs(diff);
-
-    const totalSecs = Math.floor(absDiff / 1000);
-    const secs = totalSecs % 60;
-    const mins = Math.floor(totalSecs / 60) % 60;
-    const hrs  = Math.floor(totalSecs / 3600) % 24;
-    const days = Math.floor(totalSecs / 86400);
-
-    document.getElementById('cd-days').textContent = pad(days);
-    document.getElementById('cd-hours').textContent = pad(hrs);
-    document.getElementById('cd-mins').textContent = pad(mins);
-    document.getElementById('cd-secs').textContent = pad(secs);
-
-    if (isPast) {
-      document.getElementById('deadline-title').textContent = 'DEADLINE PASSED';
-      document.getElementById('cd-status').textContent = 'SINCE DEADLINE CLOSED';
-    } else {
-      document.getElementById('deadline-title').textContent = 'TIME REMAINING';
-      document.getElementById('cd-status').textContent = 'UNTIL DEADLINE · 2 MAR 2026 8PM IST';
-      // Add live pulse to seconds
-      document.querySelectorAll('.countdown-unit').forEach(u => u.classList.add('live'));
-    }
-  }
-
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-</script>
 </body>
 </html>
